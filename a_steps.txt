@@ -26,4 +26,7 @@ git\bin\git.exe config user.name "invoice_manager"
 git\bin\git.exe config user.email "invoice.manager77@gmail.com"
 git\bin\git.exe remote set-url origin git@github.com:invoice-manager77/invoice_manager.git
 
+SHA256:XIBoZb9x2z+MZ7pgnEmjReUZX18kMM8q6/Uu5RTDfU8 invoice-manager-project
 
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2HVbG+c/C52nNr/RUfNHRbI4wAarSml+4kLQY5Mj8s invoice-manager-project
