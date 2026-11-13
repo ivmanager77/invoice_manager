@@ -1,6 +1,23 @@
 <?php
 declare(strict_types=1);
+
+require_once __DIR__ . '/auth.php';
+$user = current_user();
 ?>
+<?php if ($user !== null): ?>
+    <?php
+    $pageTitle = 'Dashboard - Invoice Manager';
+    require __DIR__ . '/header.php';
+    ?>
+    <div class="rounded-xl border border-slate-800 bg-slate-900 p-8 text-center">
+        <h1 class="mb-2 text-3xl font-bold">Welcome, <?= e($user['name']) ?>!</h1>
+        <p class="mb-6 text-slate-400">You are signed in as <?= e($user['email']) ?>.</p>
+        <a href="logout.php" class="inline-block rounded-lg bg-red-600 px-6 py-2.5 font-semibold text-white hover:bg-red-500">
+            Logout
+        </a>
+    </div>
+    <?php require __DIR__ . '/footer.php'; ?>
+<?php else: ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,8 +58,8 @@ declare(strict_types=1);
             </a>
         </div>
 
-
     </main>
 
 </body>
 </html>
+<?php endif; ?>

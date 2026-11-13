@@ -12,3 +12,7 @@
 
 # SSH host configuration
 /git/ssh/known_hosts
+
+# Database & uploads
+database/invoice_manager.db
+uploads/
