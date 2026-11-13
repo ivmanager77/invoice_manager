@@ -1,1 +1,14 @@
 @import "tailwindcss";
+@import "./theme.css";
+
+@theme inline {
+    --color-bg: var(--theme-bg);
+    --color-surface: var(--theme-surface);
+    --color-surface-muted: var(--theme-surface-muted);
+    --color-border: var(--theme-border);
+    --color-text: var(--theme-text);
+    --color-text-muted: var(--theme-text-muted);
+    --color-primary: var(--theme-primary);
+    --color-primary-hover: var(--theme-primary-hover);
+    --color-primary-soft: var(--theme-primary-soft);
+}

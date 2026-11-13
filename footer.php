@@ -1,6 +1,10 @@
     </main>
-    <footer class="border-t border-slate-800 bg-slate-900 px-6 py-4 text-center text-xs text-slate-400">
-        Invoice Manager &copy; <?= date('Y') ?>
+
+    <footer class="border-t border-border bg-surface px-6 py-5 text-center text-xs text-text-muted">
+        <div class="mx-auto max-w-6xl flex flex-col items-center justify-between gap-2 sm:flex-row">
+            <span>Invoice Manager &copy; <?= date('Y') ?></span>
+            <span>Personal Invoice &amp; Warranty Organizer</span>
+        </div>
     </footer>
 </body>
 </html>
