@@ -11,6 +11,12 @@ git\bin\git.exe add . && ^
 git\bin\git.exe commit -m "Student 2: Abdullah Alomari - Shared Layout Profile and Store Management" && ^
 git\bin\git.exe push -u origin main
 
+
+git\bin\git.exe config core.sshCommand "ssh -i git/ssh/invoice_manager -o IdentitiesOnly=yes" && ^
+git\bin\git.exe add . && ^
+git\bin\git.exe commit -m "Student 3: Tariq Almanai - Invoice Creation and QR Generation" && ^
+git\bin\git.exe push -u origin main
+
 student pull:
 git\bin\git.exe config core.sshCommand "ssh -i git/ssh/invoice_manager -o IdentitiesOnly=yes" && git\bin\git.exe fetch origin main && git\bin\git.exe reset --hard origin/main
 

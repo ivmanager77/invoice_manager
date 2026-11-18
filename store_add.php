@@ -53,9 +53,8 @@ require __DIR__ . '/header.php';
 ?>
 
 <div class="mx-auto max-w-lg rounded-2xl border border-border bg-surface p-6 shadow-sm">
-    <div class="mb-6 flex items-center justify-between">
+    <div class="mb-6">
         <h1 class="text-xl font-bold text-text">Add New Store</h1>
-        <a href="stores.php" class="text-sm font-medium text-text-muted hover:text-text">&larr; Back to Stores</a>
     </div>
 
     <?php if (!empty($errors)): ?>

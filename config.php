@@ -86,3 +86,56 @@ function handle_store_image_upload(array $file, ?string $oldPath = null): array
 
     return ['path' => 'uploads/stores/' . $filename, 'error' => null];
 }
+
+/**
+ * Validate and store an uploaded invoice file (PDF or JPG/PNG).
+ * Returns ['path' => ?string, 'error' => ?string].
+ */
+function handle_invoice_file_upload(array $file, string $invoiceType): array
+{
+    if ($invoiceType === 'manual') {
+        return ['path' => null, 'error' => null];
+    }
+
+    if (!isset($file['error']) || $file['error'] === UPLOAD_ERR_NO_FILE) {
+        return ['path' => null, 'error' => 'Please upload a file for the selected invoice type.'];
+    }
+
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return ['path' => null, 'error' => 'Failed to upload invoice file.'];
+    }
+
+    if ($file['size'] > 5 * 1024 * 1024) {
+        return ['path' => null, 'error' => 'File size must not exceed 5 MB.'];
+    }
+
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($file['tmp_name']);
+
+    $allowedByType = [
+        'pdf'   => ['application/pdf' => 'pdf'],
+        'image' => ['image/jpeg' => 'jpg', 'image/png' => 'png'],
+    ];
+
+    $allowed = $allowedByType[$invoiceType] ?? [];
+    if (!isset($allowed[$mime])) {
+        $msg = $invoiceType === 'pdf'
+            ? 'Only PDF files are allowed for PDF invoices.'
+            : 'Only JPG and PNG images are allowed for image invoices.';
+        return ['path' => null, 'error' => $msg];
+    }
+
+    $uploadDir = __DIR__ . '/uploads/invoices';
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
+    }
+
+    $filename = bin2hex(random_bytes(12)) . '.' . $allowed[$mime];
+    $destPath = $uploadDir . '/' . $filename;
+
+    if (!move_uploaded_file($file['tmp_name'], $destPath)) {
+        return ['path' => null, 'error' => 'Could not save uploaded invoice file.'];
+    }
+
+    return ['path' => 'uploads/invoices/' . $filename, 'error' => null];
+}
