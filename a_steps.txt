@@ -19,9 +19,15 @@ git\bin\git.exe push -u origin main
 
 
 git\bin\git.exe config core.sshCommand "ssh -i git/ssh/invoice_manager -o IdentitiesOnly=yes" && ^
-git add invoices.php invoice_view.php invoice_edit.php qr_scan.php assets/css/output.css . && ^
+git\bin\git.exe add . && ^
 git\bin\git.exe commit -m "Student 4: Hussain Al Jamal - Invoice Management Search and QR Scanner" && ^
-git\bin\git.exe  push --force origin main
+git\bin\git.exe push -u origin main
+
+
+git\bin\git.exe config core.sshCommand "ssh -i git/ssh/invoice_manager -o IdentitiesOnly=yes" && ^
+git\bin\git.exe add . && ^
+git\bin\git.exe commit -m "Student 5: Mubarak Almutairi - Warranty Management" && ^
+git\bin\git.exe push -u origin main
 
 student pull:
 git\bin\git.exe config core.sshCommand "ssh -i git/ssh/invoice_manager -o IdentitiesOnly=yes" && git\bin\git.exe fetch origin main && git\bin\git.exe reset --hard origin/main
