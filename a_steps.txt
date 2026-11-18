@@ -20,7 +20,7 @@ git\bin\git.exe push -u origin main
 
 git\bin\git.exe config core.sshCommand "ssh -i git/ssh/invoice_manager -o IdentitiesOnly=yes" && ^
 git\bin\git.exe add . && ^
-git\bin\git.exe commit -m "Student 4: Mubarak Almutairi - Invoice Management Search and QR Scanner" && ^
+git\bin\git.exe commit -m "Student 4: Hussain Al Jamal - Invoice Management Search and QR Scanner" && ^
 git\bin\git.exe push -u origin main
 
 student pull:
