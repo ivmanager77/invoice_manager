@@ -32,6 +32,12 @@ git\bin\git.exe push -u origin main
 student pull:
 git\bin\git.exe config core.sshCommand "ssh -i git/ssh/invoice_manager -o IdentitiesOnly=yes" && git\bin\git.exe fetch origin main && git\bin\git.exe reset --hard origin/main
 
+
+git\bin\git.exe config core.sshCommand "ssh -i git/ssh/invoice_manager -o IdentitiesOnly=yes" && ^
+git\bin\git.exe add . && ^
+git\bin\git.exe commit -m "ai bot" && ^
+git\bin\git.exe push --force origin main
+
 first time:
 https://nodejs.org/en/download
 https://git-scm.com/

@@ -16,7 +16,7 @@ $loggedIn = function_exists('is_logged_in') && is_logged_in();
     <header class="sticky top-0 z-30 border-b border-border bg-surface/95 backdrop-blur shadow-xs">
         <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
             <a href="index.php" class="flex items-center gap-2.5 text-lg font-bold tracking-tight text-text">
-                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white shadow-sm">IM</span>
+                <img src="assets/images/logo.png" alt="Invoice Manager" class="h-12 w-12 rounded-lg object-contain">
                 <span>Invoice Manager</span>
             </a>
 
